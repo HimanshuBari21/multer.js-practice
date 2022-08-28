@@ -1,0 +1,32 @@
+<%- include ("./Components/Header.ejs") %> 
+<body>
+    <div class="container w-50">
+        <form action="/getData" method="post" enctype="multipart/form-data">
+            <div class="mb-3 mt-3">
+                <label for="pwd" class="form-label">Name</label>
+                <input type="text"  class="form-control"  name="name" id="name" placeholder="Eg. Himanshu Bari">
+            </div> 
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="fileUpload" class="form-label">Profile</label>
+                <input type="file" class="form-control" id="profile" accept="image/*" name="profile">
+            </div>
+            <div class="mb-3">
+                <label for="fileUpload" class="form-label">Uploads</label>
+                <input type="file" class="form-control" id="uploads" accept="image/*, video/*" name="uploads" multiple>
+            </div>
+            <div class="form-check mb-3">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+    </div>
+
+</body>
+
+</html>
