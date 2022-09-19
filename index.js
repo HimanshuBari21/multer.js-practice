@@ -12,6 +12,11 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 const register = require('./Routes/register.js');
+const { send } = require('process');
+
+app.get('/', (res, req) => {
+    req.send("<a href='/register' >Register</a>");
+})
 
 app.use('/register', register);
 
