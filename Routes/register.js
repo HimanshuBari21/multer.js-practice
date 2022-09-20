@@ -24,8 +24,8 @@ router.post("/", upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'uploa
     // res.send("Hello")
 
     for (let i = 0; i < req.files['profile'].length; i++) {
-        fs.rename(path.join(__dirname, "../public/Uploads/" + req.files['profile'][i].filename), path.join(__dirname, "../public/Uploads/" + req.files['profile'][i].originalname), () => {
-            console.log(`${req.files['profile'][i].originalname} has been stored in public/Uploads`);
+        fs.rename(path.join(__dirname, "../public/uploads/" + req.files['profile'][i].filename), path.join(__dirname, "../public/uploads/" + req.files['profile'][i].originalname), () => {
+            console.log(`${req.files['profile'][i].originalname} has been stored in public/uploads`);
         })
     }
 
