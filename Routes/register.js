@@ -12,23 +12,23 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
 const upload = multer({
-    dest: '/public/uploads/',
+    dest: path.join(__dirname, '../public/uploads/')
 })
 
 router.get("/", (req, res) => {
     res.render("register")
 })
 
-router.post("/",  upload.fields([{name: 'profile', maxCount: 1}, {name: 'uploads'}]), (req, res) => {
+router.post("/", upload.fields([{ name: 'profile', maxCount: 1 }, { name: 'uploads' }]), (req, res) => {
 
     // res.send("Hello")
-    
+
     for (let i = 0; i < req.files['profile'].length; i++) {
-        fs.rename(path.join(__dirname, "/public/Uploads/" + req.files['profile'][i].filename), path.join(__dirname, "/public/Uploads/" + req.files['profile'][i].originalname), () => {
+        fs.rename(path.join(__dirname, "../public/Uploads/" + req.files['profile'][i].filename), path.join(__dirname, "../public/Uploads/" + req.files['profile'][i].originalname), () => {
             console.log(`${req.files['profile'][i].originalname} has been stored in public/Uploads`);
         })
     }
-     
+
     // for (let i = 0; i < req.files['uploads'].length; i++) {
     //     fs.rename(path.join(__dirname, "/public/Uploads/" + req.files['uploads'][i].filename), path.join(__dirname, "/public/Uploads/" + req.files['uploads'][i].originalname), () => {
     //         console.log(`${req.files['uploads'][i].originalname} has been stored in public/Uploads`);
@@ -50,7 +50,7 @@ router.post("/",  upload.fields([{name: 'profile', maxCount: 1}, {name: 'uploads
     //         req.files
     //     ]
     // )
-    
+
 });
 
 //export this router to use in our index.js
