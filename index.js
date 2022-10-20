@@ -14,10 +14,13 @@ app.set("views", path.join(__dirname, "/views"));
 const register = require('./Routes/register.js');
 const { send } = require('process');
 
-app.get('/', (res, req) => {
-    req.send("<a href='/register' >Register</a>");
+app.get('/', (req, res) => {
+    res.send("<a href='/register' >Register</a>");
 })
-app.get("/dhiraj",  (req, res) => { res.json({name:"Dhiraj", title: "Full Stack Developer", moto: "I'm Pro"}) })
+
+app.get('/dhiraj', (req, res) => {
+    res.json({name:"Dhiraj", title: "Full Stack Developer", moto: "I'm Pro"})
+})
 app.use('/register', register);
 
 app.listen(port, () => console.log(`Example app listening on port http://localhost:${port} at ${new Date()}`))
